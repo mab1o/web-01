@@ -6,7 +6,7 @@ import { Component } from "./component";
       /* class ScoreComponent constructor */
       constructor() {
         super(template)
-        var params = parseUrl();
+        let params = parseUrl();
         this.template = template;
         this.name = params.name;
         this.size = parseInt(params.size);
