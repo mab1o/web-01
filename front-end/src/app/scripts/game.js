@@ -1,5 +1,6 @@
 import { parseUrl } from "./utils";
 import template from "../views/game.html";
+import { Component } from "./component";
 
 import back  from "/src/assets/cards/back.png";
 import card0 from "/src/assets/cards/card-0.png";
@@ -27,11 +28,10 @@ var CARD_TEMPLATE = ""
     },
   };
 
-  export class GameComponent{
-    // TODO #extends: extend Component
+  export class GameComponent extends Component {
     /* class GameComponent constructor */
     constructor(){
-        // TODO #extends: call super(template)
+        super(template)
         // gather parameters from URL
         var params = parseUrl();
 
@@ -231,12 +231,11 @@ var CARD_TEMPLATE = ""
       card9,
     ];
 
-  class CardComponent{
+  class CardComponent extends Component{
 
     /* class CardComponent constructor */
-    // TODO #extends: extends Component
     constructor(id){
-        // TODO #extends: call super(CARD_TEMPLATE)
+        super(CARD_TEMPLATE)
         // is this card flipped?
         this._flipped = false;
         this.template = CARD_TEMPLATE;

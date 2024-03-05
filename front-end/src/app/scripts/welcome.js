@@ -1,9 +1,11 @@
 import template from "../views/welcome.html";
-  export class  WelcomeComponent{
+import { Component } from "./component";
+
+  export class  WelcomeComponent extends Component{
 
     /* class WelcomeComponent constructor  */
     constructor(){
-        // TODO #extends: call super(template)
+        super(template)
         this.template = template;
     };
 

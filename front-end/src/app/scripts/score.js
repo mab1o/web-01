@@ -1,10 +1,11 @@
 import template from "../views/score.html";
 import { parseUrl } from "./utils";
+import { Component } from "./component";
 
-  export class ScoreComponent{
+  export class ScoreComponent extends Component{
       /* class ScoreComponent constructor */
       constructor() {
-        // TODO #extends: call super(template)
+        super(template)
         var params = parseUrl();
         this.template = template;
         this.name = params.name;
