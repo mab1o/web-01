@@ -46,9 +46,7 @@ let CARD_TEMPLATE = ""
     /* method GameComponent.init */
     init() {
         // fetch the cards configuration from the server
-        this.fetchConfig(
-          // TODO #arrow-function: use arrow function instead.
-          function (config) {
+        this.fetchConfig((config) => {
             this._config = config;
             this._boardElement = document.querySelector(".cards");
 
@@ -65,16 +63,14 @@ let CARD_TEMPLATE = ""
               this._boardElement.appendChild(card.getElement());
 
               card.getElement().addEventListener(
-                  "click",
-                  // TODO #arrow-function: use arrow function instead.
-                  function () {
+                  "click", () => {
                     this._flipCard(card);
-                  }.bind(this)
+                  }
               );
             }
 
             this.start();
-          }.bind(this)
+          }
         );
     };
 
@@ -82,18 +78,13 @@ let CARD_TEMPLATE = ""
     start() {
         this._startTime = Date.now();
         let seconds = 0;
-        // TODO #template-literals:  use template literals (backquotes)
         document.querySelector("nav .navbar-title").textContent =
-          "Player: " + this._name + ". Elapsed time: " + seconds++;
+          `Player: ${this._name}. Elapsed time: ${seconds++}`;
 
-        this._timer = setInterval(
-          // TODO #arrow-function: use arrow function instead.
-          function () {
-            // TODO #template-literals:  use template literals (backquotes)
+        this._timer = setInterval(() => {
             document.querySelector("nav .navbar-title").textContent =
-              "Player: " + this._name + ". Elapsed time: " + seconds++;
-          }.bind(this),
-          1000
+              `Player: ${this._name}. Elapsed time: ${seconds++}`;
+          },1000
         );
     };
 
@@ -104,11 +95,9 @@ let CARD_TEMPLATE = ""
           ? new XMLHttpRequest()
           : new ActiveXObject("Microsoft.XMLHTTP");
 
-      // TODO #template-literals:  use template literals (backquotes)
-      xhr.open("get", environment.api.host + "/board?size=" + this._size, true);
+      xhr.open("get",`${environment.api.host}/board?size=${this._size}`, true);
 
-      // TODO #arrow-function: use arrow function instead.
-      xhr.onreadystatechange = function () {
+      xhr.onreadystatechange = () => {
         let status;
         let data;
         // https://xhr.spec.whatwg.org/#dom-xmlhttprequest-readystate
@@ -133,22 +122,11 @@ let CARD_TEMPLATE = ""
       );
       clearInterval(this._timer);
 
-      setTimeout(
-        // TODO #arrow-function: use arrow function instead.
-        function () {
+      setTimeout(() => {
           let scorePage = "./#score";
-          // TODO #template-literals:  use template literals (backquotes)
           window.location =
-            scorePage +
-            "?name=" +
-            this._name +
-            "&size=" +
-            this._size +
-            "&time=" +
-            timeElapsedInSeconds;
-        }.bind(this),
-        750
-      );
+            `${scorePage}?name=${this._name}&size=${this._size}&time=${timeElapsedInSeconds}`;
+        }, 750);
     };
 
     /* method GameComponent._flipCard */
@@ -188,9 +166,7 @@ let CARD_TEMPLATE = ""
 
             // cards did not match
             // wait a short amount of time before hiding both cards
-            setTimeout(
-              // TODO #arrow-function: use arrow function instead.
-              function () {
+            setTimeout( () => {
                 // hide the cards
                 this._flippedCard.flip();
                 card.flip();
@@ -198,9 +174,7 @@ let CARD_TEMPLATE = ""
 
                 // reset flipped card for the next turn.
                 this._flippedCard = null;
-              }.bind(this),
-              500
-            );
+              }, 500);
           }
         }
     };
