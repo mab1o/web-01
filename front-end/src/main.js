@@ -2,7 +2,6 @@ import { Router } from "./app/scripts/router";
 import { WelcomeComponent } from "./app/components/welcome/welcome.component";
 import { GameComponent } from "./app/components/game/game.component";
 import { ScoreComponent } from "./app/components/score/score.component";
-// TODO #import-css: use ES side-effect imports to import styles/style.css
 import { NavbarComponent } from "./app/components/navbar/navbar.component";
 import { FooterComponent } from "./app/components/footer/footer.component";
 import "../node_modules/bootstrap/dist/css/bootstrap.css";

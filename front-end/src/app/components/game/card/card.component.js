@@ -14,9 +14,6 @@ import card7 from "./assets/card-7.png";
 import card8 from "./assets/card-8.png";
 import card9 from "./assets/card-9.png";
 
-
-// TODO #card-component: Change images location to /app/components/game/card/assets/***.png
-// TODO #import-assets: use ES default import to import images.
 let CARDS_IMAGE = [
     back,
     card0,
