@@ -12,10 +12,6 @@ body {
   overflow: hidden;
 }
 
-.navbar-brand img {
-  height: 50px;
-}
-
 body > main {
   overflow: auto;
 }
@@ -41,6 +37,7 @@ body > main {
   box-shadow: 0 0 0 0.25rem #cb246822;
   border-color: #cb2468;
 }
+
 .bg-dark * {
   color: #fcfcfc;
 }

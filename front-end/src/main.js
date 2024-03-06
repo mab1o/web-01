@@ -3,9 +3,11 @@ import { WelcomeComponent } from "./app/components/welcome/welcome.component";
 import { GameComponent } from "./app/components/game/game.component";
 import { ScoreComponent } from "./app/components/score/score.component";
 // TODO #import-css: use ES side-effect imports to import styles/style.css
-
+import { NavbarComponent } from "./app/components/navbar/navbar.component";
 import "../node_modules/bootstrap/dist/css/bootstrap.css";
 import "./app/styles/style.css";
+
+customElements.define("my-navbar", NavbarComponent);
 
 const outlet = document.querySelector("#content-outlet");
 const router = new Router(outlet);
