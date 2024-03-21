@@ -2,6 +2,7 @@ import template from "./score.component.html";
 import { parseUrl } from "../../scripts/utils";
 import { Component } from "../../scripts/component";
 import "./score.component.css";
+import { cleanStorage } from "../game/localstorage/localstorage.component";
 
   export class ScoreComponent extends Component{
       /* class ScoreComponent constructor */
@@ -15,9 +16,10 @@ import "./score.component.css";
       };
 
       /* method ScoreComponent.init */
-      init() {
+      async init() {
           document.getElementById("name").innerText = this.name;
           document.getElementById("size").innerText = this.size;
           document.getElementById("time").innerText = this.time;
+          await cleanStorage();
       };
   }

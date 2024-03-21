@@ -1,6 +1,7 @@
 import template from "./welcome.component.html";
 import { Component } from "../../scripts/component";
 import "./welcome.component.css";
+import {cleanStorage} from "../game/localstorage/localstorage.component";
 
   export class  WelcomeComponent extends Component{
 
@@ -11,7 +12,7 @@ import "./welcome.component.css";
     };
 
     /* method WelcomeComponent.init */
-    init() {
+    async init() {
         let form = document.querySelector("form.form-signin");
 
         form.addEventListener(
@@ -23,13 +24,11 @@ import "./welcome.component.css";
             } else {
               let name = event.srcElement.querySelector("#nickname").value;
               let size = parseInt(event.srcElement.querySelector("#size").value);
-
               this._startGame(name, size);
             }
-          },
-          false
+          }, false
         );
-
+        await cleanStorage();
         return this;
     };
 
