@@ -36,7 +36,7 @@ Comme vous pouvez le voir, le jeu se compose de trois vues :
 
 #### 1. `npm install` command also generated a **package-lock.json** file along with **package.json**. What is the purpose of this file?
 
-Le fichier **package-lock.json** a pour but de donner une version détaillée de la version de chaque dépendance. Ainsi, si le projet est récupéré par quelqu'un d'autre, il pourra lancer le projet avec les mêmes bibliothèques.
+Le fichier **package-lock.json** a pour but de donner la version exacte de chaque dépendance installée, y compris ses sous-dépendances et leurs versions.Cela rend le build reproductible et donc plus facile à partager avec d'autres développeurs. Ainsi, si le projet est récupéré par quelqu'un d'autre, il pourra lancer le projet avec les mêmes bibliothèques et les mêmes versions de celle-ci.
 
 #### 2. By convention, all `NPM` dependencies use a 3-digit format for version numbers. How do you call this?
 
@@ -44,11 +44,11 @@ Les dépendances dans NPM utilisent une convention pour le nommage de leur versi
 
 #### 3. What is a devDependency exactly? What are the differences with a dependency?
 
-Les devDependency sont des dépendances uniquement utilisées lors du développement. Elles ne sont pas utiles pour l'application finale livrée à un client.
+Les dépendances régulières sont les packages nécessaires pour que l'application fonctionne correctement en production. Les devDependency sont des dépendances uniquement utilisées lors du développement, telles que celle de test. Elles ne sont pas utiles pour l'application finale livrée au client.
 
 #### 4. What is a closure/iife ? What was it used for ? What replaced it?
 
-L’ iife est utilisé pour encapsuler des variables et fonctions. Cela permet d’éviter la pollution du scope global. Cette pratique est bien moins utilisée, car l’ES6 permet désormais de choisir grâce au mot `export` les fonctions et variables qui pourront être dans le scope global.
+L’ iife est utilisé pour encapsuler des variables et fonctions en créant de nouveaux scopes . Cela permet d’éviter la pollution du scope global. Cette pratique est bien moins utilisée, car l’ES6 permet désormais de choisir grâce au mot `export` les fonctions et variables qui pourront être dans le scope global.
 
 #### 5. What is the difference between `import * from './utils'` and import `{ parseUrl } from './utils'`? What can be the consequences of using one instead of the other?
 
@@ -106,7 +106,7 @@ La fonction `reduce()` prends en entrée un tableau et renvoie une valeur. L’a
 
 #### 17. What is the difference between `.then()` and `async/await` when handling asynchronous functions?
 
-`.then()` est utilisé pour traiter le résultat d’une promesse. `async/await` ont un fonctionnement similaire à `.then()`. Cependant, les fonctions `async` renvoient des promesses et `await` permet d’appeler d’autres `async` fonction à la suite sans avoir à définir une chaine de promesse comme avec `.then()`.
+`.then()` est utilisé pour traiter le résultat d’une promesse. `async/await` ont un fonctionnement similaire à `.then()` et plus moderne de gérer les opérations asynchrones. lLes fonctions `async` renvoient des promesses et `await` permet d’appeler d’autres `async` fonction à la suite sans avoir à définir une chaine de promesse comme avec `.then()`.
 
 #### 18. What does the _ prefix mean on a `SASS` file?
 
